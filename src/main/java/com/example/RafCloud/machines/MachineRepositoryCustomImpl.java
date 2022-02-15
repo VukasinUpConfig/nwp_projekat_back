@@ -35,6 +35,7 @@ public class MachineRepositoryCustomImpl implements MachineRepositoryCustom {
 		List<Predicate> predicates = new ArrayList<>();
 		predicates.add(namePredicate);
 		predicates.add(statusPredicate);
+		predicates.add(activePredicate);
 		if (dateFrom != null) {
 			predicates.add(fromPredicate);
 		}

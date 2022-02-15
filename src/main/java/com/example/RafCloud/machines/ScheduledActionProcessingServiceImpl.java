@@ -61,6 +61,7 @@ public class ScheduledActionProcessingServiceImpl implements ScheduledActionProc
 		Machine machine = schedule.getMachine();
 		if (machine.getStatus() != Status.STOPPED) {
 			persistErrorMessage("Machine can only be started if it's in STOPPED state", schedule);
+			return;
 		}
 		Random r = new Random();
 		int sleep = 10000 + r.nextInt(5000);
@@ -82,6 +83,7 @@ public class ScheduledActionProcessingServiceImpl implements ScheduledActionProc
 		Machine machine = schedule.getMachine();
 		if (machine.getStatus() != Status.RUNNING) {
 			persistErrorMessage("Machine can only be stopped if it's in RUNNING state", schedule);
+			return;
 		}
 		
 		Random r = new Random();
@@ -104,6 +106,7 @@ public class ScheduledActionProcessingServiceImpl implements ScheduledActionProc
 		Machine machine = schedule.getMachine();
 		if (machine.getStatus() != Status.RUNNING) {
 			persistErrorMessage("Machine can only be restarted if it's in RUNNING state", schedule);
+			return;
 		}
 		
 		Random r = new Random();
